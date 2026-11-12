@@ -1,6 +1,8 @@
 # Cape Comorin Children School — Frontend
 
-Frontend for Cape Comorin Children School's website (`capecomorinschool.com`) and admin panel (`admin.capecomorinschool.com`). One Next.js codebase, subdomain-routed.
+Frontend for Cape Comorin Children School's website (`capecomorinschool.com`)
+and admin panel (`admin.capecomorinschool.com`). One Next.js codebase with
+subdomain-based routing.
 
 **Private repository — proprietary.** Not open source. Not licensed for reuse, forking, or redistribution outside this project.
 
@@ -33,7 +35,7 @@ Frontend for Cape Comorin Children School's website (`capecomorinschool.com`) an
 ## Quickstart
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/dhawalshankar/capecomorinschool.git
 cd capecomorin-frontend
 npm install
 cp .env.example .env.local   # fill in values, see below
@@ -49,7 +51,7 @@ Admin panel (local) → `http://admin.localhost:3000` (or the dev override in `m
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_API_BASE_URL` | Base URL of `capecomorin-backend` |
+| `NEXT_PUBLIC_API_BASE_URL` | Base URL of `ccs-backend` |
 | `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase (admin login) |
 | `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase (admin login) |
 | `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase (admin login) |
@@ -86,7 +88,7 @@ capecomorin-frontend/
 │   ├── public/
 │   └── admin/
 ├── lib/
-│   ├── api.ts         # single client for capecomorin-backend
+│   ├── api.ts         # single client for ccs-backend
 │   └── auth.ts        # Firebase auth helpers
 ├── public/logo.png
 ├── middleware.ts       # subdomain routing: admin.* → (admin)
@@ -117,7 +119,9 @@ Admin routes are additionally gated by a Firebase session check at the layout le
 | Registers | Upload scanned registers for AI extraction (proxied to Vritukul) |
 | Fees | Demo log of test Razorpay transactions (not real accounting in v1) |
 
-All requests go through `lib/api.ts` → `capecomorin-backend`, authenticated with a Firebase token. This app never calls Vritukul, Cloudinary, Razorpay, or CloudConvert directly.
+All requests go through `lib/api.ts` → `ccs-backend`, authenticated with a
+Firebase token. This app never calls Vritukul, Cloudinary, Razorpay, or
+CloudConvert directly.
 
 ---
 
