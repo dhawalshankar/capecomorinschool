@@ -123,13 +123,26 @@ All requests go through `lib/api.ts` → `capecomorin-backend`, authenticated wi
 
 ## Related Repos
 
-- `capecomorin-backend` — Flask API (owns all business logic, proxies to Vritukul)
+- `ccs-backend` — Flask API (owns all business logic, proxies to Vritukul)
+- `vritukul-backend` — FastAPI records service for student search and AI register extraction
+
+The browser talks only to `ccs-backend`. Student and register operations are
+forwarded by that backend to the independently deployed Vritukul service; the
+Vritukul service key is never exposed in this frontend.
 
 ---
 
 ## Deployment
 
 Hosted on Vercel. `capecomorinschool.com` and `admin.capecomorinschool.com` point to the same deployment; `middleware.ts` splits traffic. Production env vars are set in Vercel project settings, not in the repo.
+
+The production system has three separate boundaries:
+
+1. This Next.js application on Vercel for public pages and the admin panel.
+2. `ccs-backend` on Render for Firebase-authenticated school operations,
+   notices, calendar, teachers, fees, and proxying.
+3. Vritukul on Render for Turso-backed student records and Gemini-powered
+   register ingestion.
 
 ---
 
