@@ -125,8 +125,8 @@ export default function GenerateNoticeModal({
       setOriginallyMissingKeys(missingNow);
 
       setStep("review");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -159,8 +159,8 @@ export default function GenerateNoticeModal({
       const data = await res.json();
       setDraftText(data.draft_text || "");
       setStep("draft");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -183,8 +183,8 @@ export default function GenerateNoticeModal({
       if (!res.ok) throw new Error("Could not publish the notice. Try again.");
       onPublished();
       onClose();
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
     }

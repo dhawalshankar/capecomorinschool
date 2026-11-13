@@ -68,7 +68,7 @@ export default function AdminDashboard() {
         if (!Array.isArray(data)) return setUpcomingCount(0);
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const upcoming = data.filter((e: any) => new Date(e.start_date) >= today);
+        const upcoming = data.filter((e: { start_date: string }) => new Date(e.start_date) >= today);
         setUpcomingCount(upcoming.length);
       })
       .catch(() => setUpcomingCount(0));
