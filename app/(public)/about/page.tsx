@@ -23,7 +23,7 @@ export default function About() {
       </p>
       <p className="text-[#3A3E45] leading-relaxed mb-6">
         We are a Playgroup to Class 8, English-medium, government-recognized
-        school based in Ratan Lal Nagar, Kanpur. We don't chase rankings or
+        school based in Ratan Lal Nagar, Kanpur. We don&apos;t chase rankings or
         trophy walls — we focus on the quieter, harder work of actually
         teaching well.
       </p>
@@ -51,7 +51,7 @@ export default function About() {
 
       <div className="mt-16 bg-white border border-[#E5DFD0] rounded p-8">
         <div className="text-[#C9A227] uppercase tracking-[0.2em] text-xs mb-3">
-          Principal's Message
+          Principal&apos;s Message
         </div>
         <div className="flex flex-col sm:flex-row gap-6 items-start">
           <div className="shrink-0 mx-auto sm:mx-0">
@@ -68,12 +68,12 @@ export default function About() {
           </div>
           <div>
             <p className="font-[family-name:var(--font-display)] text-xl leading-relaxed text-[#16233F] mb-3">
-              "In 25 years, I have learned that no two children grow the same
+              &quot;In 25 years, I have learned that no two children grow the same
               way, on the same day, at the same pace — and a school that
               forgets this stops being a school and becomes a factory. Our
               promise here has never been to produce the loudest results. It
               has been to notice each child closely enough to know what they
-              actually need, and to give it to them without hurry."
+              actually need, and to give it to them without hurry.&quot;
             </p>
             <div className="text-sm text-[#5B5F66]">— Chitranshi Shukla, Principal</div>
           </div>

@@ -31,14 +31,14 @@ export default function Faculty() {
 
       <p className="text-[#3A3E45] leading-relaxed text-lg mb-6 max-w-2xl">
         We do not publish staff profiles on this website, and we never
-        will. Our teachers' privacy is not negotiable — not for marketing,
+        will. Our teachers&apos; privacy is not negotiable — not for marketing,
         not for anything else. What we owe you instead is something more
         useful than a photograph: an honest account of how we build and
         hold our faculty to a standard.
       </p>
       <p className="text-[#3A3E45] leading-relaxed mb-16 max-w-2xl">
-        A child's education is only as strong as the person standing in
-        front of them every day. So rather than show you faces, we'd
+        A child&apos;s education is only as strong as the person standing in
+        front of them every day. So rather than show you faces, we&apos;d
         rather show you the thinking behind who gets to stand there.
       </p>
 
@@ -57,7 +57,7 @@ export default function Faculty() {
         <p className="text-[#16233F] font-[family-name:var(--font-display)] text-lg leading-relaxed">
           If you have questions about who is teaching your child, ask us
           directly — we will always answer honestly, in person or over a
-          call. That conversation belongs to you and us. It doesn't
+          call. That conversation belongs to you and us. It doesn&apos;t
           belong on a public webpage.
         </p>
       </div>

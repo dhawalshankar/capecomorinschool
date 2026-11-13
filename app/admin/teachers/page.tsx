@@ -62,8 +62,28 @@ export default function AdminTeachers() {
   }
 
   useEffect(() => {
-    loadTeachers();
-  }, []);
+    async function fetchTeachers() {
+      try {
+        const res = await authedFetch(`${API}/api/teachers`);
+        if (!res.ok) {
+          setLoadError(
+            res.status === 403
+              ? "You don't have access to the staff roster."
+              : "Couldn't load teachers. Try refreshing."
+          );
+          setTeachers([]);
+          return;
+        }
+        setTeachers(await res.json());
+      } catch {
+        setLoadError("Couldn't reach the server. Check your connection.");
+        setTeachers([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchTeachers();
+  }, [API]);
 
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();

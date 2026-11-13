@@ -91,8 +91,15 @@ export default function AdminStudents() {
   }
 
   useEffect(() => {
-    loadAllStudents();
-  }, []);
+    async function fetchStudents() {
+      const res = await authedFetch(`${API}/api/students/list`);
+      const data = await res.json();
+      setResults(data.results || []);
+      setSelected(new Set());
+      setLoading(false);
+    }
+    fetchStudents();
+  }, [API]);
 
   async function handleSearch(e: React.FormEvent) {
     e.preventDefault();

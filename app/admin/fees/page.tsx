@@ -318,9 +318,8 @@ export default function AdminFees() {
                     width={56}
                   />
                   <Tooltip
-                    // recharts Tooltip formatter may receive undefined; accept any and coerce to number
-                    formatter={(v: any) => [
-                      `₹${formatINR(typeof v === "number" ? v : Number(v) || 0)}`,
+                    formatter={(v: unknown) => [
+                      `₹${formatINR(typeof v === "number" ? v : typeof v === "string" ? Number(v) || 0 : 0)}`,
                       "Collected",
                     ]}
                     contentStyle={{ borderColor: "#E5DFD0", fontSize: 12 }}
@@ -369,8 +368,8 @@ export default function AdminFees() {
                   width={56}
                 />
                 <Tooltip
-                  formatter={(v: any) => [
-                    `₹${formatINR(typeof v === "number" ? v : Number(v) || 0)}`,
+                  formatter={(v: unknown) => [
+                    `₹${formatINR(typeof v === "number" ? v : typeof v === "string" ? Number(v) || 0 : 0)}`,
                     "Collected",
                   ]}
                   contentStyle={{ borderColor: "#E5DFD0", fontSize: 12 }}

@@ -28,8 +28,13 @@ export default function AdminNotices() {
   }
 
   useEffect(() => {
-    loadNotices();
-  }, []);
+    async function fetchNotices() {
+      const res = await fetch(`${API}/api/notices`, { cache: "no-store" });
+      setNotices(await res.json());
+      setLoading(false);
+    }
+    fetchNotices();
+  }, [API]);
 
   async function handleUpload(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

@@ -34,8 +34,17 @@ export default function AdminCalendar() {
   }
 
   useEffect(() => {
-    loadEvents();
-  }, []);
+    async function fetchCalendar() {
+      const res = await fetch(`${API}/api/calendar`, { cache: "no-store" });
+      const data = await res.json();
+      data.sort((a: CalendarEvent, b: CalendarEvent) =>
+        new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+      );
+      setEvents(data);
+      setLoading(false);
+    }
+    fetchCalendar();
+  }, [API]);
 
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();

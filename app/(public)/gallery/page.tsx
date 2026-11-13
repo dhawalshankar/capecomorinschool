@@ -93,7 +93,7 @@ export default function Gallery() {
           A Comfortable, Well-Cared-For Environment
         </h2>
         <p className="text-[#3A3E45] leading-relaxed mb-8">
-          Beyond what's taught, we pay close attention to the everyday
+          Beyond what&apos;s taught, we pay close attention to the everyday
           comfort and engagement of every child — because a school day well
           spent starts with the basics being taken care of, quietly and
           consistently.
@@ -118,7 +118,7 @@ export default function Gallery() {
         Live From Our Feed
       </h2>
       <p className="text-[#3A3E45] leading-relaxed mb-8 max-w-2xl">
-        From classroom learning to extracurricular activities, here's a live
+        From classroom learning to extracurricular activities, here&apos;s a live
         look at school life, straight from our social media.
       </p>
       <div className="rounded overflow-hidden border border-[#E5DFD0] bg-white p-2">

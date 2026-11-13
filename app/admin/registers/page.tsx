@@ -3,11 +3,18 @@
 import { useState } from "react";
 import { authedFetch } from "@/lib/api";
 
+type UploadResult = {
+  status: string;
+  inserted: number;
+  skipped: number;
+  total: number;
+};
+
 export default function AdminRegisters() {
   const [file, setFile] = useState<File | null>(null);
   const [srSeries, setSrSeries] = useState<"old" | "new">("old");
   const [uploading, setUploading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<UploadResult | null>(null);
   const [error, setError] = useState("");
   const API = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -59,7 +66,7 @@ export default function AdminRegisters() {
           onChange={(e) => setFile(e.target.files?.[0] || null)}
           className="w-full text-sm"
         />
-        <p className="text-xs text-[#8A8F97]">Upload a scanned Scholar's Register PDF for AI extraction.</p>
+        <p className="text-xs text-[#8A8F97]">Upload a scanned Scholar&apos;s Register PDF for AI extraction.</p>
         <button
           type="submit"
           disabled={uploading}

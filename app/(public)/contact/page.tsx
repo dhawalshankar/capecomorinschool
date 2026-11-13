@@ -81,7 +81,7 @@ export default function Contact() {
         </div>
         <div className="bg-white border border-[#E5DFD0] rounded p-8">
           {submitted ? (
-            <p className="text-[#16233F] font-medium">Thanks — we'll get back to you shortly.</p>
+            <p className="text-[#16233F] font-medium">Thanks — we&apos;ll get back to you shortly.</p>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <input name="from_name" required placeholder="Your Name" className="w-full border border-[#E5DFD0] rounded px-4 py-2 text-sm" />

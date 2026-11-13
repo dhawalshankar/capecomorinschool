@@ -43,8 +43,9 @@ export default function ChangePasswordModal({ onClose }: { onClose: () => void }
       await reauthenticateWithCredential(user, credential);
       await updatePassword(user, newPassword);
       setSuccess(true);
-    } catch (err: any) {
-      if (err.code === "auth/wrong-password" || err.code === "auth/invalid-credential") {
+    } catch (err: unknown) {
+      const code = err && typeof err === "object" && "code" in err ? String((err as { code: unknown }).code) : "";
+      if (code === "auth/wrong-password" || code === "auth/invalid-credential") {
         setError("Current password is incorrect.");
       } else {
         setError("Something went wrong — please try again.");

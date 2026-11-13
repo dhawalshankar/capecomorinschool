@@ -68,7 +68,7 @@ export default function AdminDashboard() {
         if (!Array.isArray(data)) return setUpcomingCount(0);
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const upcoming = data.filter((e: any) => new Date(e.start_date) >= today);
+        const upcoming = data.filter((e: { start_date: string }) => new Date(e.start_date) >= today);
         setUpcomingCount(upcoming.length);
       })
       .catch(() => setUpcomingCount(0));
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
         Dashboard
       </h1>
       <p className="text-[#5B5F66] text-sm mb-10">
-        A quick look at what's happening across the site.
+        A quick look at what&apos;s happening across the site.
       </p>
 
       <div className={`grid sm:grid-cols-${isSuperAdmin ? "3" : "2"} gap-6 mb-12`}>
