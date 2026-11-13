@@ -101,6 +101,7 @@ Vritukul (FastAPI, already deployed on Render) — students, TC generation, reco
 | Notice storage | PDF/DOCX uploads; DOCX converted to PDF via conversion API (e.g. CloudConvert) before storage |
 | File storage | Separate Cloudinary account for CCS (decoupled from Vritukul's storage/billing) — to confirm |
 | Academic calendar | List/timeline view; national holidays auto-seeded via holidays API, school-specific entries manual |
+| CI/CD | GitHub Actions (`.github/workflows/ci.yml`) for automated lint, typecheck, and build verification on push/PR; Vercel for CD preview and production deployments |
 
 ---
 
@@ -125,6 +126,9 @@ Vritukul is not a repo in this project. It's an already-deployed URL that capeco
 
 ```
 capecomorin-frontend/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                # GitHub Actions: lint, typecheck, build
 ├── app/
 │   ├── (public)/                 # public-facing routes
 │   │   ├── page.tsx              # Home
