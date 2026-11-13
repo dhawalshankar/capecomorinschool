@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useSyncExternalStore } from "react";
 import {
   getCapturedPrompt,
   onPromptCaptured,
@@ -20,23 +20,35 @@ function isStandalone(): boolean {
   );
 }
 
+const emptySubscribe = () => () => {};
+
+function subscribeStandalone(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("appinstalled", callback);
+  const mql = window.matchMedia("(display-mode: standalone)");
+  mql.addEventListener("change", callback);
+  return () => {
+    window.removeEventListener("appinstalled", callback);
+    mql.removeEventListener("change", callback);
+  };
+}
+
 export function usePWAInstall() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(
     () => getCapturedPrompt() // pick up event even if it already fired earlier
   );
-  const [installed, setInstalled] = useState(false);
-  const [ios, setIos] = useState(false);
+  const [appInstalled, setAppInstalled] = useState(false);
+  const standalone = useSyncExternalStore(subscribeStandalone, isStandalone, () => false);
+  const ios = useSyncExternalStore(emptySubscribe, isIOS, () => false);
+  const installed = standalone || appInstalled;
 
   useEffect(() => {
-    setInstalled(isStandalone());
-    setIos(isIOS());
-
     const unsubscribe = onPromptCaptured((e) => {
       setDeferredPrompt(e);
     });
 
     function handleAppInstalled() {
-      setInstalled(true);
+      setAppInstalled(true);
       setDeferredPrompt(null);
       clearCapturedPrompt();
     }

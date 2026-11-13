@@ -36,10 +36,11 @@ export default function AdminLayoutClient({ children }: { children: ReactNode })
     return () => unsubscribe();
   }, [isLoginPage, router]);
 
-  // Close the mobile drawer automatically whenever the route changes
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setSidebarOpen(false);
-  }, [pathname]);
+  }
 
   if (isLoginPage) {
     return <>{children}</>;
