@@ -14,6 +14,7 @@ subdomain-based routing.
 - [Quickstart](#quickstart)
 - [Environment Variables](#environment-variables)
 - [Scripts](#scripts)
+- [CI/CD & Quality Gates](#cicd--quality-gates)
 - [Folder Structure](#folder-structure)
 - [Routing](#routing)
 - [Admin Panel](#admin-panel)
@@ -52,10 +53,16 @@ Admin panel (local) → `http://admin.localhost:3000` (or the dev override in `m
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_API_BASE_URL` | Base URL of `ccs-backend` |
-| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase (admin login) |
-| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase (admin login) |
-| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase (admin login) |
-| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase (admin login) |
+| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key (admin login) |
+| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase auth domain |
+| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID |
+| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase app ID |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 Measurement ID |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | EmailJS Service ID (enquiries / contact form) |
+| `NEXT_PUBLIC_EMAILJS_ADMISSIONS_TEMPLATE_ID` | EmailJS template ID for admissions enquiries |
+| `NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID` | EmailJS template ID for general contact form |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJS public key |
+| `NEXT_PUBLIC_DEV_ADMIN_HOST` | Local development host for admin proxy (e.g. `admin.localhost:3000`) |
 | `NEXT_PUBLIC_RAZORPAY_KEY_ID` | Razorpay test key (v1 = demo scope only) |
 
 Never commit `.env.local`. Get real values from the project owner.
@@ -69,7 +76,29 @@ Never commit `.env.local`. Get real values from the project owner.
 | `npm run dev` | Local dev server |
 | `npm run build` | Production build |
 | `npm run start` | Serve production build |
-| `npm run lint` | Lint codebase |
+| `npm run lint` | Lint codebase (`eslint`) |
+| `npm run typecheck` | Type check without emitting JS (`tsc --noEmit`) |
+
+---
+
+## CI/CD & Quality Gates
+
+Continuous Integration and Deployment are automated:
+
+1. **GitHub Actions (`.github/workflows/ci.yml`)**:
+   - Triggers on every push to `main` and all pull requests.
+   - Concurrency group with `cancel-in-progress` to prevent redundant runner usage.
+   - Runs on `ubuntu-latest` with Node.js 20 and `npm` dependency caching.
+   - Enforces frozen lockfile installs (`npm ci`).
+   - Runs three quality gates:
+     - `npm run lint` — ESLint code quality & Next.js rules.
+     - `npm run typecheck` — TypeScript compiler checks (`tsc --noEmit`).
+     - `npm run build` — Production Turbopack bundle verification.
+   - Build-time environment variables are safely stubbed with mock values during CI.
+
+2. **Vercel (CD)**:
+   - Automated preview deployments for every Pull Request.
+   - Zero-downtime production deployment automatically triggered when PRs merge into `main`.
 
 ---
 
