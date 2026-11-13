@@ -104,7 +104,7 @@ export default function Admissions() {
       <div className="bg-white border border-[#E5DFD0] rounded p-8 max-w-lg">
         {submitted ? (
           <p className="text-[#16233F] font-medium">
-            Thank you — we've received your enquiry and will reach out soon.
+            Thank you — we&apos;ve received your enquiry and will reach out soon.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -132,10 +132,10 @@ export default function Admissions() {
       <div className="mt-20 max-w-2xl">
         <div className="text-[#C9A227] uppercase tracking-[0.2em] text-xs mb-3">Our Assurance</div>
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[#16233F] mb-4">
-          Choosing the right school is one of the most important decisions you'll make for your child
+          Choosing the right school is one of the most important decisions you&apos;ll make for your child
         </h2>
         <p className="text-[#3A3E45] leading-relaxed">
-          The early years of school shape a child's confidence, discipline,
+          The early years of school shape a child&apos;s confidence, discipline,
           and character for life — far beyond marks and report cards. At
           Cape Comorin Children School, every enquiry is followed up personally by
           our admissions team, who will walk you through the process, answer

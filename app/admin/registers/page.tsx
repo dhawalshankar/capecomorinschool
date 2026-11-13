@@ -59,7 +59,7 @@ export default function AdminRegisters() {
           onChange={(e) => setFile(e.target.files?.[0] || null)}
           className="w-full text-sm"
         />
-        <p className="text-xs text-[#8A8F97]">Upload a scanned Scholar's Register PDF for AI extraction.</p>
+        <p className="text-xs text-[#8A8F97]">Upload a scanned Scholar&apos;s Register PDF for AI extraction.</p>
         <button
           type="submit"
           disabled={uploading}

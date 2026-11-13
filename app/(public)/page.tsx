@@ -97,12 +97,12 @@ export default async function Home() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="text-[#C9A227] uppercase tracking-[0.2em] text-xs mb-3">
-            From the Principal's Desk
+            From the Principal&apos;s Desk
           </div>
           <p className="font-[family-name:var(--font-display)] text-2xl leading-relaxed text-[#16233F]">
-            "Every child who walks through our gates carries a dream. Our
+            &quot;Every child who walks through our gates carries a dream. Our
             work, every single day, is to make sure that dream is taken
-            seriously."
+            seriously.&quot;
           </p>
           <div className="mt-4 text-sm text-[#5B5F66]">
             — Chitranshi Shukla, Principal

@@ -154,7 +154,7 @@ export default function Academics() {
           A Childhood, Not Just a Curriculum
         </h2>
         <p className="text-[#3A3E45] leading-relaxed mb-8 max-w-2xl">
-          We believe a child's growth cannot be measured by textbooks alone.
+          We believe a child&apos;s growth cannot be measured by textbooks alone.
           Alongside academics, our students are given real, hands-on
           opportunities to compete, create, perform, and discover — building
           confidence that stays with them long after they leave our classrooms.
@@ -189,8 +189,8 @@ export default function Academics() {
         </h2>
         <p className="text-[#3A3E45] leading-relaxed mb-4">
           Up to Class 8, no board — CBSE, ICSE, or otherwise — conducts a formal
-          board examination. What actually shapes a child at this stage isn't
-          the board's name on paper; it's how seriously the foundational years
+          board examination. What actually shapes a child at this stage isn&apos;t
+          the board&apos;s name on paper; it&apos;s how seriously the foundational years
           are taught. We follow a CBSE-aligned pattern using NCERT-based
           material, with a concept-first approach designed to build real
           command over language, math, and science — not memorization for a
@@ -199,14 +199,14 @@ export default function Academics() {
         <p className="text-[#3A3E45] leading-relaxed mb-4">
           Our classrooms are built around a simple ideology: a child who
           understands deeply in the early years never struggles to catch up
-          later, no matter which board or school they move to next. That's why
+          later, no matter which board or school they move to next. That&apos;s why
           we invest in strong fundamentals now, rather than rushing children
           through a syllabus.
         </p>
         <p className="text-xs text-[#8A8F98] leading-relaxed">
           Cape Comorin Children School stands as a government-recognized, English-medium
           institution, proudly affiliated within the academic fold of the
-          state of Uttar Pradesh's board of education — a foundation upon
+          state of Uttar Pradesh&apos;s board of education — a foundation upon
           which our CBSE-style pedagogy is layered.
         </p>
       </div>
@@ -225,10 +225,10 @@ export default function Academics() {
             Are You a Cape Comorin Children School Alumnus?
           </h2>
           <p className="text-[#3A3E45] text-sm leading-relaxed mb-4">
-            We're building an alumni record — a way for future students and
+            We&apos;re building an alumni record — a way for future students and
             families to see the people who once sat in these same classrooms
             and where their journeys led. If you studied at Cape Comorin
-            School, we'd love to hear from you and add you to that record.
+            School, we&apos;d love to hear from you and add you to that record.
           </p>
           <Link
             href="/contact"

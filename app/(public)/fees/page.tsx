@@ -16,7 +16,7 @@ export default function FeePayment() {
 
       <div className="bg-white border border-[#E5DFD0] rounded p-8 space-y-4 mb-12">
         <p className="text-sm text-[#5B5F66] leading-relaxed">
-          Click below to proceed to our secure payment page. You'll be able
+          Click below to proceed to our secure payment page. You&apos;ll be able
           to enter your student details and amount there.
         </p>
              
@@ -27,8 +27,8 @@ export default function FeePayment() {
           Pay Now
         </button>
          <p className="text-xs text-[#8A8F97] text-center">
-                You'll be redirected to our secure Razorpay payment page. Please have
-                your child's name, class, and month ready for the receipt.
+                You&apos;ll be redirected to our secure Razorpay payment page. Please have
+                your child&apos;s name, class, and month ready for the receipt.
               </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function FeePayment() {
           Why This Matters to Us?
         </h2>
         <p className="text-[#3A3E45] leading-relaxed mb-6">
-          When you pay fees, you're not just settling an invoice — you're
+          When you pay fees, you&apos;re not just settling an invoice — you&apos;re
           directly funding the things that let us keep our promise to your
           child. We take that seriously, and we think you deserve to know
           exactly what it goes toward.
@@ -77,7 +77,7 @@ export default function FeePayment() {
         </div>
 
         <p className="text-[#3A3E45] leading-relaxed mt-8">
-          We don't chase rankings or trophies. What we do chase, every
+          We don&apos;t chase rankings or trophies. What we do chase, every
           year, is making sure the fee you pay turns into a real,
           honest education for your child — not overhead, not excess,
           just the actual work of teaching well.
